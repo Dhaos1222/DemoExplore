@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/myimages">
+        <file>imgaes/add.png</file>
+        <file>imgaes/add_line.png</file>
+        <file>imgaes/arrow_left.png</file>
+        <file>imgaes/arrow_right.png</file>
+        <file>imgaes/back.png</file>
+        <file>imgaes/cope.png</file>
+        <file>imgaes/earth.png</file>
+        <file>imgaes/export_excel.png</file>
+        <file>imgaes/export_word.png</file>
+        <file>imgaes/file.png</file>
+        <file>imgaes/garbage.png</file>
+        <file>imgaes/label.png</file>
+        <file>imgaes/refresh.png</file>
+        <file>imgaes/text.png</file>
+        <file>imgaes/paste.png</file>
+    </qresource>
+</RCC>
