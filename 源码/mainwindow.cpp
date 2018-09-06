@@ -604,16 +604,16 @@ void MainWindow::newDFile()
             return;
         }
         QString dirName = QInputDialog::getText(this,
-                                                tr("Create Directory"),
-                                                tr("Directory name"));
+                                                tr("新建文件夹"),
+                                                tr("文件夹名"));
         QDir temp(model->filePath(index));
 
         //qDebug()<<model->filePath(index);
         if (!dirName.isEmpty()) {
             if (!temp.mkdir(dirName)) {
                 QMessageBox::information(this,
-                                         tr("Create Directory"),
-                                         tr("Failed to create the directory"));
+                                         tr("新建文件夹"),
+                                         tr("新建文件夹失败"));
             }
         }
         model->refresh();
@@ -641,7 +641,7 @@ void MainWindow::receQstring(QStringList fileStringNew)
     {
     fileAndDirName = fileStringNew;
     ui->searchLineEdit->setText(QStringLiteral("搜索完毕，点击图标查看"));
-    searchFinishAction = new QAction(QIcon(":/new/icon/image/showSearch.png"),QStringLiteral("搜索完毕,显示"),this);
+    searchFinishAction = new QAction(QIcon(":/myimages/imgaes/showSearch.png"),QStringLiteral("搜索完毕,显示"),this);
     ui->searchLineEdit->addAction(searchFinishAction,QLineEdit::TrailingPosition);
     connect(searchFinishAction,SIGNAL(triggered(bool)),this,SLOT(solveSraech()));
     }
@@ -651,17 +651,17 @@ void MainWindow::receQstring(QStringList fileStringNew)
 
 void MainWindow::solveSraech()
 {
-    searchFinishAction->setIcon(QIcon(":/new/icon/image/close.png"));
+    searchFinishAction->setIcon(QIcon(":/myimages/imgaes/close.png"));
     searchFinishAction->setText(QStringLiteral("关闭搜索界面"));
     ui->searchLineEdit->setText(QStringLiteral("点击“×”关闭此页面"));
     QStringListModel *sModel = new QStringListModel;
     ui->listView->setModel(sModel);
     ui->listView->setViewMode(QListView::ListMode);
-    ui->listView->setStyleSheet("border-top-color:rgb(220,220,220); border-top-width:1px; border-top-style:solid; "
-                                "border-right-width:1px; border-right-color:rgb(248,248,248); border-right-style:solid;"
-                                "font-size:20px");
-    ui->listView->setIconSize(QSize(26,60));
-    ui->listView->setGridSize(QSize(26,60));
+//    ui->listView->setStyleSheet("border-top-color:rgb(220,220,220); border-top-width:1px; border-top-style:solid; "
+//                                "border-right-width:1px; border-right-color:rgb(248,248,248); border-right-style:solid;"
+//                                "font-size:20px");
+//    ui->listView->setIconSize(QSize(26,60));
+//    ui->listView->setGridSize(QSize(26,60));
     sModel->setStringList(fileAndDirName);
     this->setContextMenuPolicy(Qt::NoContextMenu);
     ui->listView->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -675,7 +675,7 @@ void MainWindow::clickCloseSlot()
 {
     //refreshView();
     //checkView();
-    model->refresh();
+    ui->listView->setModel(model);
     searchFinishAction->setVisible(false);
     ui->searchLineEdit->clear();
     ui->listView->setRootIndex(indexHistory.at(indexPoint));

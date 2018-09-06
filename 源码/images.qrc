@@ -15,5 +15,7 @@
         <file>imgaes/refresh.png</file>
         <file>imgaes/text.png</file>
         <file>imgaes/paste.png</file>
+        <file>imgaes/close.png</file>
+        <file>imgaes/showSearch.png</file>
     </qresource>
 </RCC>
